@@ -2,7 +2,7 @@ import React from 'react';
 
 function Book({ book }) {
   return (
-    <div key={book.id} className="relative bg-yellow-50 min-w-72 min-h-80 max-h-80 p-8 m-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+    <div key={book.id} className="sm:max-w-64  relative bg-yellow-50 md:min-w-72 min-h-80 max-h-80 p-8 m-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
       <div className="flex justify-center mb-2">
         <img src={book.imageLinks.thumbnail} alt={book.title} className="w-32 h-48 mb-2 rounded-lg shadow-md" />
       </div>

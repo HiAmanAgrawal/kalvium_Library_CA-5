@@ -1,17 +1,13 @@
-import React from 'react'
-import { useState } from 'react'
-import BookStore from './components/BookStore'
-
-import './App.css'
+import React from 'react';
+import BookStore from './components/BookStore';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-    <BookStore />
-    </>
-  )
+    <div className="App">
+      <BookStore />
+    </div>
+  );
 }
 
-export default App
+export default App;
