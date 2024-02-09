@@ -132,7 +132,7 @@ function Register() {
             id="tnc"
             {...register("acceptTerms", { required: true })}
           />
-          <label for="tnc">I accept the terms and conditions.</label>
+          <label for="tnc">I accept the <a href="https://github.com/HiAmanAgrawal/kalvium_Library_CA-5/blob/main/README.md"><u>terms and conditions.</u></a></label>
         </div>
             {console.log(errors)}
         {errors.acceptTerms && (
