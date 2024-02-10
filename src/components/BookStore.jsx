@@ -48,7 +48,7 @@ function BookStore() {
       </div>
       <Routes>
         <Route path="/register" element={<Register />} />
-        <Route path="/" element={<div><SearchForm onSearch={handleSearch} /><BookList books={filterData} /></div>} />
+        <Route path="/" element={<div className="md:hidden"><SearchForm onSearch={handleSearch} /><BookList books={filterData} /></div>} />
       </Routes>
     </div>
   );
