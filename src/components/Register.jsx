@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState , useRef } from "react";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 
 function Register() {
   // Initialize form methods and state variables using react-hook-form
@@ -10,6 +11,8 @@ function Register() {
     watch,
   } = useForm();
   
+  const linkRef = useRef(null);
+
   // State variable to manage form submission status
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -23,7 +26,7 @@ function Register() {
     // Reset isSubmitted after 3 seconds and redirect to home page
     setTimeout(() => {
       setIsSubmitted(false);
-      window.location.href = "./";
+      linkRef.current.click()
     }, 3000);
   };
 
@@ -157,9 +160,11 @@ function Register() {
 
         {/* Submit button */}
         <div className="flex justify-center">
+        <Link to="../" ref={linkRef}>
           <button className="formField bg-blue-500 text-white px-4 py-2 rounded-md focus:outline-none hover:bg-blue-600" type="submit">
             Sign Up
           </button>
+          </Link>
         </div>
       </form>
     </div>
