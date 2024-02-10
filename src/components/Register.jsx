@@ -1,4 +1,4 @@
-import React, { useState , useRef } from "react";
+import React, { useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 
@@ -10,7 +10,7 @@ function Register() {
     formState: { errors },
     watch,
   } = useForm();
-  
+
   const linkRef = useRef(null);
 
   // State variable to manage form submission status
@@ -26,16 +26,23 @@ function Register() {
     // Reset isSubmitted after 3 seconds and redirect to home page
     setTimeout(() => {
       setIsSubmitted(false);
-      linkRef.current.click()
+      linkRef.current.click();
     }, 3000);
   };
 
   return (
     <div className="formContainer h-auto flex justify-center rounded-lg">
-      <form className="overflow-y-scroll registerForm p-10 w-5/6 md:w-2/6 shadow-md m-4 bg-white" onSubmit={handleSubmit(onSubmit)}>
+    <Link to="../" ref={linkRef}></Link>
+      <form
+        className="overflow-y-scroll registerForm p-10 w-5/6 md:w-2/6 shadow-md m-4 bg-white"
+        onSubmit={handleSubmit(onSubmit)}
+      >
         {isSubmitted && (
           // Show success message if form is submitted successfully
-          <div className="successMessage text-green-500">Registration successful.You will be automatically redirected in 3 seconds.</div>
+          <div className="successMessage text-green-500">
+            Registration successful.You will be automatically redirected in 3
+            seconds.
+          </div>
         )}
 
         {/* First Name field */}
@@ -57,7 +64,9 @@ function Register() {
             })}
           />
           {errors.firstName && (
-            <span className="errorMessage text-red-500">{errors.firstName.message}</span>
+            <span className="errorMessage text-red-500">
+              {errors.firstName.message}
+            </span>
           )}
         </div>
 
@@ -80,7 +89,9 @@ function Register() {
             })}
           />
           {errors.lastName && (
-            <span className="errorMessage text-red-500">{errors.lastName.message}</span>
+            <span className="errorMessage text-red-500">
+              {errors.lastName.message}
+            </span>
           )}
         </div>
 
@@ -99,7 +110,9 @@ function Register() {
             })}
           />
           {errors.email && (
-            <span className="errorMessage text-red-500">{errors.email.message}</span>
+            <span className="errorMessage text-red-500">
+              {errors.email.message}
+            </span>
           )}
         </div>
 
@@ -117,12 +130,15 @@ function Register() {
               },
               pattern: {
                 value: /^(?=.*[!@#$%^&*])/,
-                message: "Password must contain at least one special character.",
+                message:
+                  "Password must contain at least one special character.",
               },
             })}
           />
           {errors.password && (
-            <span className="errorMessage text-red-500">{errors.password.message}</span>
+            <span className="errorMessage text-red-500">
+              {errors.password.message}
+            </span>
           )}
         </div>
 
@@ -138,7 +154,9 @@ function Register() {
             })}
           />
           {errors.repeatPassword && (
-            <span className="errorMessage text-red-500">{errors.repeatPassword.message}</span>
+            <span className="errorMessage text-red-500">
+              {errors.repeatPassword.message}
+            </span>
           )}
         </div>
 
@@ -149,7 +167,12 @@ function Register() {
             id="tnc"
             {...register("acceptTerms", { required: true })}
           />
-          <label htmlFor="tnc">I accept the <a href="https://github.com/HiAmanAgrawal/kalvium_Library_CA-5/blob/main/README.md"><u>terms and conditions.</u></a></label>
+          <label htmlFor="tnc">
+            I accept the{" "}
+            <a href="https://github.com/HiAmanAgrawal/kalvium_Library_CA-5/blob/main/README.md">
+              <u>terms and conditions.</u>
+            </a>
+          </label>
         </div>
         {errors.acceptTerms && (
           // Show error message if terms and conditions are not accepted
@@ -160,11 +183,14 @@ function Register() {
 
         {/* Submit button */}
         <div className="flex justify-center">
-        <Link to="../" ref={linkRef}>
-          <button className="formField bg-blue-500 text-white px-4 py-2 rounded-md focus:outline-none hover:bg-blue-600" type="submit">
-            Sign Up
-          </button>
-          </Link>
+          
+            <button
+              className="formField bg-blue-500 text-white px-4 py-2 rounded-md focus:outline-none hover:bg-blue-600"
+              type="submit"
+            >
+              Sign Up
+            </button>
+          
         </div>
       </form>
     </div>
