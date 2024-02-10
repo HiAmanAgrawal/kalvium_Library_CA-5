@@ -13,6 +13,7 @@ function Register() {
   const password = watch("password");
 
   const onSubmit = (data) => {
+    console.log(data);
     setIsSubmitted(true);
     setTimeout(() => {
       setIsSubmitted(false);
@@ -22,7 +23,7 @@ function Register() {
 
   return (
     <div className="formContainer h-auto flex justify-center rounded-lg   ">
-      <form className="overflow-y-scroll registerForm p-10 w-2/6 shadow-md m-4 bg-white" onSubmit={handleSubmit(onSubmit)}>
+      <form className="overflow-y-scroll registerForm p-10 w-5/6 md:w-2/6 shadow-md m-4 bg-white" onSubmit={handleSubmit(onSubmit)}>
         {isSubmitted && (
           <div className="successMessage text-green-500">Registration successful</div>
         )}
@@ -132,9 +133,8 @@ function Register() {
             id="tnc"
             {...register("acceptTerms", { required: true })}
           />
-          <label for="tnc">I accept the <a href="https://github.com/HiAmanAgrawal/kalvium_Library_CA-5/blob/main/README.md"><u>terms and conditions.</u></a></label>
+          <label htmlFor="tnc">I accept the <a href="https://github.com/HiAmanAgrawal/kalvium_Library_CA-5/blob/main/README.md"><u>terms and conditions.</u></a></label>
         </div>
-            {console.log(errors)}
         {errors.acceptTerms && (
           <div className="errorContainer bg-red-100 text-red-500 px-4 py-2 rounded-md mt-4">
             Please accept the terms and conditions

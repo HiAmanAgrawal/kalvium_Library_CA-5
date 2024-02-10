@@ -45,11 +45,10 @@ function BookStore() {
       <NavBar onSearch={handleSearch} />
       <div className="line border-b-2 border-black"></div>
       <div className="md:hidden">
-      <SearchForm onSearch={handleSearch} />
       </div>
       <Routes>
         <Route path="/register" element={<Register />} />
-        <Route path="/" element={<BookList books={filterData} />} />
+        <Route path="/" element={<div><SearchForm onSearch={handleSearch} /><BookList books={filterData} /></div>} />
       </Routes>
     </div>
   );

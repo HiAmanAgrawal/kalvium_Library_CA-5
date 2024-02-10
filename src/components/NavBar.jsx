@@ -25,7 +25,7 @@ function NavBar({ onSearch }) {
         {console.log(location)}
         {location.pathname == "/Register" ? (
           <Link to="/">
-            <button className="cursor-pointer font-semibold overflow-hidden relative z-100 border-4 border-red-500 group px-8 py-2">
+            <button className="cursor-pointer font-semibold overflow-hidden relative z-100 border-4 border-red-500 group sm:px-8 sm:py-2">
               <span className="relative z-10 text-red-500 group-hover:text-white text-xl duration-500">
                 Return
               </span>
