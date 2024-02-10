@@ -2,19 +2,25 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
 function Register() {
+  // Initialize form methods and state variables using react-hook-form
   const {
     register,
     handleSubmit,
     formState: { errors },
     watch,
   } = useForm();
+  
+  // State variable to manage form submission status
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  // Get the value of the 'password' field
   const password = watch("password");
 
+  // Function to handle form submission
   const onSubmit = (data) => {
-    console.log(data);
-    setIsSubmitted(true);
+    console.log(data); // Log form data to the console as mentioned in CA-5
+    setIsSubmitted(true); // Set isSubmitted to true to show success message
+    // Reset isSubmitted after 3 seconds and redirect to home page
     setTimeout(() => {
       setIsSubmitted(false);
       window.location.href = "./";
@@ -22,12 +28,14 @@ function Register() {
   };
 
   return (
-    <div className="formContainer h-auto flex justify-center rounded-lg   ">
+    <div className="formContainer h-auto flex justify-center rounded-lg">
       <form className="overflow-y-scroll registerForm p-10 w-5/6 md:w-2/6 shadow-md m-4 bg-white" onSubmit={handleSubmit(onSubmit)}>
         {isSubmitted && (
-          <div className="successMessage text-green-500">Registration successful</div>
+          // Show success message if form is submitted successfully
+          <div className="successMessage text-green-500">Registration successful.You will be automatically redirected in 3 seconds.</div>
         )}
 
+        {/* First Name field */}
         <div className="mb-4">
           <input
             className="formField w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
@@ -50,6 +58,7 @@ function Register() {
           )}
         </div>
 
+        {/* Last Name field */}
         <div className="mb-4">
           <input
             className="formField w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
@@ -72,6 +81,7 @@ function Register() {
           )}
         </div>
 
+        {/* Email field */}
         <div className="mb-4">
           <input
             className="formField w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
@@ -90,6 +100,7 @@ function Register() {
           )}
         </div>
 
+        {/* Password field */}
         <div className="mb-4">
           <input
             className="formField w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
@@ -112,6 +123,7 @@ function Register() {
           )}
         </div>
 
+        {/* Repeat Password field */}
         <div className="mb-4">
           <input
             className="formField w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
@@ -127,6 +139,7 @@ function Register() {
           )}
         </div>
 
+        {/* Accept Terms and Conditions checkbox */}
         <div className="mb-4">
           <input
             type="checkbox"
@@ -136,11 +149,13 @@ function Register() {
           <label htmlFor="tnc">I accept the <a href="https://github.com/HiAmanAgrawal/kalvium_Library_CA-5/blob/main/README.md"><u>terms and conditions.</u></a></label>
         </div>
         {errors.acceptTerms && (
+          // Show error message if terms and conditions are not accepted
           <div className="errorContainer bg-red-100 text-red-500 px-4 py-2 rounded-md mt-4">
             Please accept the terms and conditions
           </div>
         )}
 
+        {/* Submit button */}
         <div className="flex justify-center">
           <button className="formField bg-blue-500 text-white px-4 py-2 rounded-md focus:outline-none hover:bg-blue-600" type="submit">
             Sign Up
